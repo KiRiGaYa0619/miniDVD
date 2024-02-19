@@ -32,7 +32,6 @@ public class DVDService {
 	}
 	public void info(String id) {
 		mapper.info(id);
-
 	}
 	public List<ValueAndText> getList(String category){
 		return mapper.getList(category);
