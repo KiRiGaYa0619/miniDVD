@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与Mapper接口绑定 -->
+<mapper namespace="jp.co.brightstar.dvd.mapper.DVDMapper">
+	<!-- 
+		id⇒方法名
+		parameterType⇒参数数据类型
+		resultType⇒返回值数据类型
+	 -->
+	 <!--新增dvd  -->
+	<insert id="insertDVD" parameterType="String">
+		INSERT INTO DVD_INFO(NAME) VALUES (#{name });
+	</insert>
+
+	<select id="selectDVD" parameterType="Condi" resultType="DVD">
+		SELECT
+		    DI.ID
+		    , STATE
+		    , NAME
+		    , LEND_DATE AS `DATE`
+		    , COUNT
+		FROM
+		    DVD_INFO AS DI
+		LEFT JOIN
+		    DVD_LEND_INFO AS DLI
+		ON
+		    DI.ID = DLI.DVD_ID
+		    AND RETURN_DATE IS NULL
+		<where>
+		    DELETE_FLAG = 0
+		    <if test="state != null">
+		    	AND STATE IN
+		    	<foreach collection="state" item="s" index="i" open="(" separator="," close=")">
+		    		#{s }
+		    	</foreach>
+		    </if>
+		    <!-- <if test="name != ''">
+		    	<bind name="likename" value="'%' + name + '%'"/>
+		    	AND NAME LIKE #{likename }
+		    </if> -->
+		    <if test="name != ''">
+		    	AND NAME LIKE CONCAT('%', #{name }, '%')
+		    </if>
+		    <if test="fromdate != ''">
+		    	AND LEND_DATE >= #{fromdate }
+		    </if>
+		    <if test="todate != ''">
+		    	AND LEND_DATE &lt;= #{todate }
+		    </if>
+		    <if test="count != ''">
+		    	AND COUNT
+		    	<choose>
+		    		<when test="count == 0">
+		    			BETWEEN 0 AND 9
+		    		</when>
+		    		<when test="count == 1">
+		    			BETWEEN 10 AND 19
+		    		</when>
+		    		<when test="count == 2">
+		    			BETWEEN 20 AND 29
+		    		</when>
+		    		<when test="count == 3">
+		    			BETWEEN 30 AND 39
+		    		</when>
+		    		<otherwise>
+		    			>= 40
+		    		</otherwise>
+		    	</choose>
+		    </if>
+		</where>
+		ORDER BY
+		    DI.ID;
+	</select>
+	<!--  借出改变dvd状态-->
+	<update id="lendDVD" parameterType="String" >
+		UPDATE DVD_INFO SET STATE = 1, COUNT = COUNT + 1  WHERE ID  = (#{id }) ;
+	</update>
+	<!--  借出插入一条数据到dvd lend info-->
+	<update id="info" parameterType="String" >
+		INSERT INTO DVD_LEND_INFO(DVD_ID, LEND_DATE) VALUES ((#{id }), CURRENT_DATE);
+	</update>
+	<!--  通过name获取id-->
+	<select id="getIdByName" parameterType="String" resultType="String">
+		SELECT ID FROM DVD_INFO WHERE NAME = (#{name }) ;
+	</select>
+	<select id="getList" parameterType="String" resultType="ValueAndText">
+	SELECT VALUE, TEXT FROM SYSTEM_SETTING WHERE CATEGORY = #{category};
+	</select>
+	
+	
+	<update id="deleteDVD" parameterType="String" >
+	UPDATE DVD_INFO SET DELETE_FLAG = 1   WHERE ID  = (#{ID }) ;
+	</update>
+	
+
+	
+</mapper>
