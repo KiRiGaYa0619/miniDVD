@@ -18,6 +18,7 @@ public interface DVDMapper {
 	void info(String id);
 	void deleteDVD(String id);
 	List<ValueAndText>getList(String category);
+	DVD detail(int id);
 }
 
 

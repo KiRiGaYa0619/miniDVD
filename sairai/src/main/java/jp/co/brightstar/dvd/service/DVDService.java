@@ -39,4 +39,8 @@ public class DVDService {
 	public void deleteDVD(String id) {
 		mapper.deleteDVD(id);		
 	}
+	public DVD detail(int id) {
+		return mapper.detail(id);
+		
+	}
 }

@@ -44,36 +44,51 @@ public class DVDController {
 		return mav;
 	}
 
-
-
 	@GetMapping("/select")
 	public ModelAndView select(Condi condi) {
 		ModelAndView mav = new ModelAndView("select");
 		System.out.println(condi);
-		if(condi.getSousaname() != null  ) {
-				if("lend".equals(condi.getSousa())) {
-					service.lendDVD(condi.getSousaid());
-					service.info(condi.getSousaid());
-				}else if("delete".equals(condi.getSousa())) {
-					service.deleteDVD(condi.getSousaid());
-				}
+		if (condi.getSousaname() != null) {
+			if ("lend".equals(condi.getSousa())) {
+				service.lendDVD(condi.getSousaid());
+				service.info(condi.getSousaid());
+			} else if ("delete".equals(condi.getSousa())) {
+				service.deleteDVD(condi.getSousaid());
+			}
 		}
-//			List<ValueAndText>stateList = service.getList("state");
-//			List<ValueAndText>countList = service.getList("count");
-//			mav.addObject("stateList", stateList);
-//			mav.addObject("countList", countList);
+		//			List<ValueAndText>stateList = service.getList("state");
+		//			List<ValueAndText>countList = service.getList("count");
+		//			mav.addObject("stateList", stateList);
+		//			mav.addObject("countList", countList);
 		List<DVD> dvds = service.selectDVD(condi);
-		mav.addObject("dvds",dvds);
-//		for (DVD dvd : dvds) {
-//			System.out.println(dvd);
-//		}
+		mav.addObject("dvds", dvds);
+		//		for (DVD dvd : dvds) {
+		//			System.out.println(dvd);
+		//		}
 
 		return mav;
 	}
-@PostMapping("/delete")
-@ResponseBody
-public Map<String , Object>delete(DVD dvd){
-	Map<String ,Object>map = new HashMap<>();
-	return map;
-}
+
+	@PostMapping("/delete")
+	@ResponseBody
+	public Map<String, Object> delete(DVD dvd) {
+		Map<String, Object> map = new HashMap<>();
+		return map;
+	}	
+	
+	@GetMapping("/detail")
+	public String detail() {
+		return "detail";
+	}
+	
+	@PostMapping("/detail")
+	public ModelAndView detail(DVD dvd) {
+		ModelAndView mav = new ModelAndView("detail");
+		int id = dvd.getId();
+		DVD detailDVD = service.detail(id);
+		System.out.println(detailDVD);
+		mav.addObject("detailDVD", detailDVD);
+		return mav;
+	}
+
 }
