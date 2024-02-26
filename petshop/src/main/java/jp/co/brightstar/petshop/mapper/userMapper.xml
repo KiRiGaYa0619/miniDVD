@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与Mapper接口绑定 -->
+<mapper namespace="jp.co.brightstar.petshop.mapper.userMapper">
+<resultMap id="customerResultMap" type="jp.co.brightstar.petshop.model.customer">
+    <id property="userid" column="USER_ID"/>
+    <result property="pwd" column="PASSWORD"/>
+    <result property="tel" column="TEL"/>
+    <result property="mail" column="MAIL"/>
+</resultMap>
+<resultMap id="petResultMap" type="jp.co.brightstar.petshop.model.pet">
+    <id property="petid" column="PET_ID"/>
+    <result property="petname" column="PET_NAME"/>
+    <result property="age" column="AGE"/>
+    <result property="type" column="TYPE"/>
+    <result property="gender" column="GENDER"/>
+</resultMap>
+<select id="pwdCheck" parameterType="String" resultType="String">
+SELECT PASSWORD FROM USER_INFO WHERE USER_ID = #{userid };
+</select>
+<select id="findCustomerById" parameterType="String" resultMap="customerResultMap">
+    SELECT * FROM USER_INFO WHERE USER_ID = #{userid}
+</select>
+<select id="findPetById" parameterType="String" resultMap="petResultMap">
+    SELECT * FROM  PET_INFO WHERE PET_USER_ID = #{userid}
+</select>
+
+</mapper>
