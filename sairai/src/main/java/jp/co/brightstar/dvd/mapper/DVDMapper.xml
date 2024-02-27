@@ -22,7 +22,8 @@
 		DVD_LEND_INFO AS DLI
 		ON
 		DI.ID = DLI.DVD_ID
-		AND RETURN_DATE IS NULL
+		AND RETURN_DATE IS
+		NULL
 		<where>
 			DELETE_FLAG = 0
 			<if test="state != null">
@@ -70,7 +71,8 @@
 	<!-- 借出改变dvd状态 -->
 	<update id="lendDVD" parameterType="String">
 		UPDATE DVD_INFO SET
-		STATE = 1, COUNT = COUNT + 1 WHERE ID = (#{id }) ;
+		STATE = 1,
+		COUNT = COUNT + 1 WHERE ID = (#{id }) ;
 	</update>
 	<!-- 借出插入一条数据到dvd lend info -->
 	<update id="info" parameterType="String">
@@ -84,16 +86,65 @@
 	</select>
 	<select id="getList" parameterType="String"
 		resultType="ValueAndText">
-		SELECT VALUE, TEXT FROM SYSTEM_SETTING WHERE CATEGORY = #{category};
+		SELECT VALUE, TEXT FROM SYSTEM_SETTING WHERE CATEGORY =
+		#{category};
 	</select>
 
 
 	<update id="deleteDVD" parameterType="String">
-		UPDATE DVD_INFO SET DELETE_FLAG = 1 WHERE ID = (#{ID }) ;
+		UPDATE DVD_INFO SET
+		DELETE_FLAG = 1 WHERE ID = (#{ID }) ;
 	</update>
 
-	<select id="detail" parameterType="int" resultType="DVD">
-		SELECT * FROM DVD_INFO WHERE ID = #{id};
+	<select id="detail" parameterType="String" resultType="DVD">
+		SELECT
+		DI.ID
+		, STATE
+		, NAME
+		, LEND_DATE AS `DATE`
+		, COUNT
+		FROM
+		DVD_INFO AS DI
+		LEFT
+		JOIN
+		DVD_LEND_INFO AS DLI
+		ON
+		DI.ID = DLI.DVD_ID
+		WHERE DI.ID = (#{ID })
+		ORDER BY DLI.CREATE_TIME DESC LIMIT 1;
+	</select>
+<!-- 更新dvd_info表 -->
+	<update id="updateDVDInfo" parameterType="String">
+		UPDATE DVD_INFO SET
+		STATE = 0 WHERE ID = (#{ID }) ;
+	</update>
+<!-- 更新iend info表-->
+	<update id="updateDVDLendInfo" parameterType="String">
+		UPDATE
+		DVD_LEND_INFO
+		SET RETURN_DATE = CURRENT_DATE,
+		COST = (DATEDIFF(CURRENT_DATE, LEND_DATE ) + 1) * PRICE
+		WHERE DVD_ID = (#{ID }) AND RETURN_DATE IS NULL;
+	</update>
+<!-- 计算花费-->
+	<select id="dvdCost" parameterType="String" resultType="String">
+		SELECT
+		COST
+		FROM DVD_LEND_INFO
+		WHERE DVD_ID = (#{ID })
+		ORDER BY RETURN_DATE DESC LIMIT 1
+	</select>
+	<!-- dvd借出历史 -->
+	<select id="getLendInfoById" parameterType="String" resultType="lendInfo">
+		SELECT
+			LEND_DATE
+			, RETURN_DATE
+			, PRICE
+			, COST
+		FROM
+			DVD_LEND_INFO
+		WHERE
+			DVD_ID = #{id };
 	</select>
 
 

@@ -1,5 +1,4 @@
 $(function() {
-    $("#nam").blur(nameCheck);
             setTimeout(msgAlert, 300);
 });
 

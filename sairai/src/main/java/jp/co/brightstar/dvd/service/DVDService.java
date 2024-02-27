@@ -9,6 +9,7 @@ import jp.co.brightstar.dvd.mapper.DVDMapper;
 import jp.co.brightstar.dvd.model.Condi;
 import jp.co.brightstar.dvd.model.DVD;
 import jp.co.brightstar.dvd.model.ValueAndText;
+import jp.co.brightstar.dvd.model.lendInfo;
 
 @Service
 public class DVDService {
@@ -39,8 +40,20 @@ public class DVDService {
 	public void deleteDVD(String id) {
 		mapper.deleteDVD(id);		
 	}
-	public DVD detail(int id) {
+	public DVD detail(String id) {
 		return mapper.detail(id);
 		
+	}
+	public void updateDVDInfo(String id) {
+		mapper.updateDVDInfo(id);
+	}
+	public void updateDVDLendInfo(String id) {
+		mapper.updateDVDLendInfo(id);
+	}
+	public String dvdCost(String id) {
+		return mapper.dvdCost(id);
+	}
+	public List<lendInfo> getLendInfoById(String id) {
+		return mapper.getLendInfoById(id);
 	}
 }

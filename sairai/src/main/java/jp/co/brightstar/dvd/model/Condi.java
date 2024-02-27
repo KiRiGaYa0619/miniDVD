@@ -20,5 +20,6 @@ public class Condi {
 		private String sousaid;
 	//借出归还操作
 	private String sousa;
+	private String detailId;
 
 }

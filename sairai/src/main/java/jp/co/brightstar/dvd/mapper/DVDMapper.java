@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import jp.co.brightstar.dvd.model.Condi;
 import jp.co.brightstar.dvd.model.DVD;
 import jp.co.brightstar.dvd.model.ValueAndText;
+import jp.co.brightstar.dvd.model.lendInfo;
 
 @Mapper
 public interface DVDMapper {
@@ -18,7 +19,11 @@ public interface DVDMapper {
 	void info(String id);
 	void deleteDVD(String id);
 	List<ValueAndText>getList(String category);
-	DVD detail(int id);
+	DVD detail(String id);
+	void updateDVDInfo(String id);
+	void updateDVDLendInfo(String id);
+	String dvdCost(String id);
+	List<lendInfo> getLendInfoById(String id);
 }
 
 

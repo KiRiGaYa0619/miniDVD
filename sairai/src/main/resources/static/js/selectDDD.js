@@ -54,9 +54,10 @@ function deleteDVD(element) {
 
 	}
 	}
-function detailDVD(id) {
-
-		$('input[name="detailid"]').val(id);
+function detailDVD(element) {
+var dvdId = $(element).closest('tr').find('td:eq(0)').text();
+		$('input[name="detailId"]').val(dvdId);
+		$("#detailForm").submit();
 }
 //	var dvdName = $(element).closest('tr').find('td:eq(2)').text();
 //	var dvdState = $(element).closest('tr').find('td:eq(1)').text();

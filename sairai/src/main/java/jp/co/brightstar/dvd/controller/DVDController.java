@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jp.co.brightstar.dvd.model.Condi;
 import jp.co.brightstar.dvd.model.DVD;
+import jp.co.brightstar.dvd.model.lendInfo;
 import jp.co.brightstar.dvd.service.DVDService;
 
 @Controller
@@ -47,7 +48,6 @@ public class DVDController {
 	@GetMapping("/select")
 	public ModelAndView select(Condi condi) {
 		ModelAndView mav = new ModelAndView("select");
-		System.out.println(condi);
 		if (condi.getSousaname() != null) {
 			if ("lend".equals(condi.getSousa())) {
 				service.lendDVD(condi.getSousaid());
@@ -77,18 +77,48 @@ public class DVDController {
 	}	
 	
 	@GetMapping("/detail")
-	public String detail() {
-		return "detail";
-	}
-	
-	@PostMapping("/detail")
-	public ModelAndView detail(DVD dvd) {
+	public ModelAndView detail(Condi condi) {
 		ModelAndView mav = new ModelAndView("detail");
-		int id = dvd.getId();
+		String id = condi.getDetailId();
 		DVD detailDVD = service.detail(id);
-		System.out.println(detailDVD);
+		List<lendInfo> lendInfoList = service.getLendInfoById(id);
+
 		mav.addObject("detailDVD", detailDVD);
+		mav.addObject("lendInfoList", lendInfoList);
 		return mav;
 	}
 
-}
+	@PostMapping("/lend")
+	@ResponseBody
+	
+	//页面取得id，name
+	public Map<String, Object> lend(String id, String name) {
+	    Map<String, Object> map = new HashMap<>();
+	    	//数据库交互
+	        service.lendDVD(id);
+	        service.info(id);
+	        //取得dvd細節更新頁面
+	        DVD info = service.detail(id);
+	        String msg = "DVD「" + name + "」の借出に成功しました！";
+	        map.put("info", info);
+	        	map.put("msg", msg);
+	    return map;
+	}
+
+	@PostMapping("/return")
+	@ResponseBody
+	public Map<String, Object> returnDVD(String id, String name) {
+	    Map<String, Object> map = new HashMap<>();
+	    service.updateDVDInfo(id);
+	    service.updateDVDLendInfo(id);
+	    String cost = service.dvdCost(id);
+	    String msg = "DVD「" + name + "」の归还に成功しました！ 花费 " + cost + "元";
+	    map.put("msg", msg);
+	    return map;
+	}
+
+	
+	}
+	
+
+	

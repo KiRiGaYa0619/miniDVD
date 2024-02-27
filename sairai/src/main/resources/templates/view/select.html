@@ -234,11 +234,13 @@
 													value="delete">刪除</button>
 											</td>
 										</form>
+										<form id="detailForm" role="form" th:action="@{/detail}" method="get" target="_blank">
 										<td><button type="button" class="btn btn-success btn-circle" 
-										th:data-id="|${dvd.id }|" th:data-name="|${dvd.name }|"
-                                            th:onclick="detailDVD(this.getAttribute('data-id'), this.getAttribute('data-name'));" th:value="detail" th:name="detail">
+												onclick="detailDVD(this)" >
+                                            <input type="hidden" name="detailId" value="">
                                                 <i class="fa fa-link"></i>
                                             </button></td> 
+                                            </form>
 									</tr>
 								</tbody>
 
