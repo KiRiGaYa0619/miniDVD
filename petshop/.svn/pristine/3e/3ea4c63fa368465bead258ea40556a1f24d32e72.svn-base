@@ -1,0 +1,18 @@
+package jp.co.brightstar.petshop.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+import jp.co.brightstar.petshop.model.Order;
+
+@Mapper
+public interface PetMapper {
+
+	@Insert("INSERT INTO PET_INFO(PET_NAME, AGE, TYPE, GENDER, PET_USER_ID)VALUES(#{petname},#{age},#{type},#{gender},#{petuserid});")
+	abstract void insertPet(String petname, String age, String type, String gender, String petuserid);
+
+	List<Order> searchOrderList(String userid);
+
+}

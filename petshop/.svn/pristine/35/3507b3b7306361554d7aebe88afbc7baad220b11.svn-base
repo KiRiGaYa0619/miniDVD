@@ -1,0 +1,15 @@
+package jp.co.brightstar.petshop.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import jp.co.brightstar.petshop.model.customer;
+import jp.co.brightstar.petshop.model.pet;
+
+@Mapper
+public interface userMapper {
+	String pwdCheck(String userid);
+
+	customer findCustomerById(String userid);
+
+	pet findPetById(String userid);
+}

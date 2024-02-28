@@ -1,0 +1,25 @@
+package jp.co.brightstar.petshop.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import jp.co.brightstar.petshop.mapper.PetMapper;
+import jp.co.brightstar.petshop.model.Order;
+import jp.co.brightstar.petshop.model.PetForm;
+
+@Service
+public class PetService {
+	@Autowired
+	private PetMapper mapper;
+
+	public void insertPet(PetForm petForm, String userid) {
+		mapper.insertPet(petForm.getPetname(), petForm.getAge(), petForm.getType(), petForm.getGender(), userid);
+	}
+
+	public List<Order> searchOrderList(String userid) {
+		return mapper.searchOrderList(userid);
+	}
+
+}

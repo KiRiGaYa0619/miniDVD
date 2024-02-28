@@ -1,0 +1,12 @@
+package jp.co.brightstar.petshop.mapper;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface PetMapper {
+
+	@Insert("INSERT INTO PET_INFO(PET_NAME, AGE, TYPE, GENDER, PET_USER_ID)VALUES(#{petname},#{age},#{type},#{gender},#{petuserid});")
+	abstract void insertPet(String petname, String age, String type, String gender, String petuserid);
+
+}

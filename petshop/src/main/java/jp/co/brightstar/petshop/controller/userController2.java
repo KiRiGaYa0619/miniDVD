@@ -23,7 +23,7 @@ public class userController2 {
 
 	@PostMapping("/login")
 	public ModelAndView goToMyPage(customer cus, HttpSession session) {
-		// 在登录成功后
+		// 在登录成功后，保持作用域里有isLoggedInshu'x
 		session.setAttribute("userid", cus.getUserid());
 	    ModelAndView mav = new ModelAndView();
 	    String pwd = service.pwdCheck(cus.getUserid());

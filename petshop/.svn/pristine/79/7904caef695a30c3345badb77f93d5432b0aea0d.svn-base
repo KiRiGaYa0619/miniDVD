@@ -1,0 +1,286 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Contact</title>
+
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="assets/css/style-starter.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,700,700i&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body id="home">
+	<section class=" w3l-header-4 header-sticky">
+		<header class="absolute-top">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<h1><a class="navbar-brand" th:href=@{/index}><span class="fa fa-paw mr-2"
+								aria-hidden="true"></span>
+							神田　ペット　ショップ
+						</a></h1>
+					<button class="navbar-toggler bg-gradient collapsed" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="fa icon-expand fa-bars"></span>
+						<span class="fa icon-close fa-times"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" th:href=@{index}>ホーム <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="about.html">預かり予約</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="services.html">履歴</a>
+							</li>
+							<li class="nav-item dropdown" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									登録
+								</a>
+								<div class="dropdown-menu " aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item " th:href=@{/contact} style="color: azure;">会員登録</a>
+									<a class="dropdown-item" th:href=@{/login} style="color: azure;">ログイン</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+			</nav>
+			</div>
+		</header>
+	</section>
+
+	<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+	<!--bootstrap working-->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- //bootstrap working-->
+	<!-- disable body scroll which navbar is in active -->
+	<script>
+		$(function () {
+			$('.navbar-toggler').click(function () {
+				$('body').toggleClass('noscroll');
+			})
+		});
+	</script>
+	<!-- disable body scroll which navbar is in active -->
+
+	<!-- breadcrumbs -->
+	<section class="w3l-inner-banner-main">
+		<div class="about-inner editContent">
+			<div class="container">
+				<ul class="breadcrumbs-custom-path">
+					<li class="right-side propClone"><a th:href=@{/index} class="editContent"> ホーム<span
+								class="fa fa-angle-right" aria-hidden="true"></span></a>
+						<p>
+					</li>
+					<li class="active editContent">登録</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<!-- breadcrumbs //-->
+	<section class="w3l-contact-info-main" id="contact">
+		<div class="contact-sec	editContent">
+			<div class="container">
+				<div class="main-titles-head text-center">
+					<h3 class="header-name editContent">
+						サインインしましょう！
+					</h3>
+					<p class="tiltle-para editContent editContent"></p>
+				</div>
+				<div class="d-grid contact-view">
+					<div class="cont-details">
+						<div class="cont-top">
+							<div class="cont-left text-center">
+								<span class="fa fa-phone text-primary"></span>
+							</div>
+							<div class="cont-right">
+								<p class="para"><a href="tel:+44 99 555 42">+81 7022229999</a></p>
+							</div>
+						</div>
+						<div class="cont-top margin-up">
+							<div class="cont-left text-center">
+								<span class="fa fa-envelope-o text-primary"></span>
+							</div>
+							<div class="cont-right">
+								<p class="para"><a href="mailto:example@mail.com" class="mail">petcare@kandaps.co.jp</a>
+								</p>
+							</div>
+						</div>
+						<div class="cont-top margin-up">
+							<div class="cont-left text-center">
+								<span class="fa fa-map-marker text-primary"></span>
+							</div>
+							<div class="cont-right">
+								<p class="para"> 3-chōme-16-4 Uchikanda,
+									<br> Chiyoda City, <br>Tokyo 101-0047.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="map-iframe">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.866106914058!2d139.76712571563447!3d35.69156928019329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188debf10b9e2d%3A0x9e7bfb4c670b3f3d!2sKanda%2C%20Chiyoda%20City%2C%20Tokyo!5e0!3m2!1sen!2sjp!4v1644929168214!5m2!1sen!2sjp"
+							width="100%" height="300" frameborder="0" style="border: 0px; pointer-events: auto;"
+							allowfullscreen=""></iframe>
+					</div>
+
+
+
+				</div>
+				<div class="map-content-9 mt-5">
+					<form th:action=@{/index} method="post">
+						<div class="admission-form">
+							<div class="form-group">
+								<div class="c-label c-required">
+									会員ID
+								</div>
+								<br>
+								<input type="text" class="form-control" name="userid" placeholder="" required=""><br>
+								<div class="error-message">※半角英数字6～12文字以内で入力してください。</div>
+							</div>
+
+							<div class="form-group">
+								<div class="c-label c-required">
+									パスワード
+								</div>
+								<br>
+								<input type="text" class="form-control" name="pwd" placeholder="" required=""><br>
+								<div class="error-message">※半角英数字記号を8～16文字以内で入力してください。<br>
+									※利用可能な記号は _.@+/-&$%|!#~^'? です。<br>※MapFan会員IDと同じ内容は登録できません。</div>
+							</div>
+							<div class="form-group">
+								<div class="c-label c-required">
+									電話番号
+								</div>
+								<br>
+								<input type="text" class="form-control" name="tel" placeholder="" required=""><br>
+							</div>
+							
+							<div class="form-group">
+								<div class="c-label c-required">
+									メールアドレス
+								</div>
+								<br>
+								<input type="email" class="form-control" name="mail" placeholder="" required=""><br>
+								<div class="error-message">※メールの受信が可能なメールアドレスを半角英数字で入力してください。</div>
+								
+							</div>
+
+
+							<div class="text-right">
+								<button type="submit" class="btn btn-primary submit action-button">登録</button>
+								
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="w3l-footer-29-main">
+		<div class="footer-29 py-5">
+			<div class="container py-lg-4">
+				<div class="row footer-top-29">
+					<div class="col-lg-5 col-md-6 col-sm-12 footer-list-29 footer-1">
+						<h2><a href="index.html" class=""><span class="fa fa-paw mr-2" aria-hidden="true"></span> Pet
+								Sitter</a></h2>
+						<p>Adipisicing elit. Lauda ntium, archi tecto iure Lorem incidunt iosam qui quo moll itia veniam
+							recus andae archi tecto earum suscipit exce pturi dicta nemo quam.</p>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3">
+						<h6 class="footer-title-29">Get in Touch</h6>
+
+						<div class="column2">
+							<div class="href1"><span>E-mail:</span><a
+									href="mailto:mail@company.com">mail@company.com</a>
+							</div>
+							<div class="href2"><span>Phone:</span><a href="tel:+(12)-00 222 00008">+(12)-00 222
+									00008</a>
+							</div>
+							<div>
+								<p class="contact-para">California, 75 West Rock,
+									Maple Building.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4">
+						<h6 class="footer-title-29">Newsletter </h6>
+						<p>Enter your email and receive the latest news from us.
+							We'll never share your email address</p>
+
+						<form action="#" class="subscribe" method="post">
+							<input type="email" name="email" placeholder="Your Email Address" required="">
+							<button><span class="fa fa-envelope-o"></span></button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="bottom-copies text-center">
+			<div class="container">
+				<p class="copy-footer-29">Copyright &copy; 2020.Company name All rights reserved.</p>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- move top -->
+	<button onclick="topFunction()" id="movetop" title="Go to top">
+		<span class="fa fa-eject"></span>
+	</button>
+	<script>
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("movetop").style.display = "block";
+			} else {
+				document.getElementById("movetop").style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+		function showDropdownMenu() {
+			$('#navbarDropdown').dropdown('show');
+		}
+
+		function hideDropdownMenu() {
+			$('#navbarDropdown').dropdown('hide');
+		}
+		$(function() {
+            setTimeout(msgAlert, 300);
+});
+
+
+function msgAlert() {
+    var msg = $("#msg").val();
+    if (msg) {
+        alert(msg);
+    }
+}
+
+	</script>
+	<!-- /move top -->
+</body>
+
+</html>

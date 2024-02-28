@@ -1,0 +1,20 @@
+package jp.co.brightstar.petshop.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import jakarta.servlet.http.HttpSession;
+import jp.co.brightstar.petshop.mapper.PetMapper;
+import jp.co.brightstar.petshop.model.PetForm;
+
+@Service
+public class PetService {
+	@Autowired
+	private PetMapper mapper;
+
+	public void insertPet(PetForm petForm, HttpSession session) {
+		mapper.insertPet(petForm.getPetname(), petForm.getAge(), petForm.getType(), petForm.getGender(),
+				(String) session.getAttribute("userid"));
+	}
+
+}

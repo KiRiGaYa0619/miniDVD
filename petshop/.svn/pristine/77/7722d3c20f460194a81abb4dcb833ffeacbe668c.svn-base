@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 与mapper接口绑定 -->
+<mapper namespace="jp.co.brightstar.petshop.mapper.PetMapper">
+
+<select id="searchOrderList" resultType="Order" parameterType="String">
+	SELECT
+	    OI.ORDER_ID AS ORDERID
+	    , SI.STORE_NM AS STORENM
+	    ,OI.SVS_SYATE AS SVSSYATE
+	    , OI.START_DATE AS STARTDATE
+	    , OI.END_DATE  AS ENDDATE
+	FROM
+	    order_info AS OI 
+	    LEFT JOIN store_info AS SI 
+	        ON OI.STORE_ID = SI.STORE_ID 
+	WHERE
+	    OI.USER_ID = #{userid };
+</select>
+
+</mapper>

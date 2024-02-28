@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Home</title>
+
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="assets/css/style-starter.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,700,700i&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body id="home">
+
+	<section class=" w3l-header-4 header-sticky">
+		<header class="absolute-top">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<h1><a class="navbar-brand" th:href=@{/index}><span class="fa fa-paw mr-2"
+								aria-hidden="true"></span>
+							神田　ペット　ショップ
+						</a></h1>
+					<button class="navbar-toggler bg-gradient collapsed" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="fa icon-expand fa-bars"></span>
+						<span class="fa icon-close fa-times"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" th:href=@{index}>ホーム <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"  th:href=@{about}>当店について</a>
+							</li>
+							<li class="nav-item">
+<<<<<<< .mine
+								<a class="nav-link" th:href=@{service}>サービス</a>
+||||||| .r12
+=======
+								<a class="nav-link" href="service.html" th:href="@{/service}">履歴</a>
+>>>>>>> .r13
+							</li>
+							<!-- 根据登录状态显示或隐藏右上角的下拉菜单 -->
+							<li class="nav-item dropdown" th:if="${isLoggedIn}" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									マイページ
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item" th:href="@{mypage}" style="color: azure;">個人情報</a>
+									<a class="dropdown-item" th:href="@{logout}" style="color: azure;">ログアウト</a>
+								</div>
+							</li>
+
+							<li class="nav-item dropdown" th:unless="${isLoggedIn}" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									登録
+								</a>
+								<div class="dropdown-menu " aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item " th:href=@{/contact} style="color: azure;">会員登録</a>
+									<a class="dropdown-item" th:href=@{/login} style="color: azure;">ログイン</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+			</nav>
+			</div>
+		</header>
+	</section>
+
+	<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+	<!--bootstrap working-->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- //bootstrap working-->
+	<!-- disable body scroll which navbar is in active -->
+	<script>
+		$(function () {
+			$('.navbar-toggler').click(function () {
+				$('body').toggleClass('noscroll');
+			})
+		});
+	</script>
+	<!-- disable body scroll which navbar is in active -->
+
+	<section class="w3l-hero-headers-9">
+		<div class="slide header11" data-selector="header11">
+			<div class="container">
+				<div class="banner-text ">
+					<h5 class=" ">すべてのペットに
+						<br><strong>特別なケア</strong>
+					</h5>
+					<p class=" ">介護が必要な犬猫や生活環境の変化によって飼育が難しくなった場合に、安心して預けられる！ 老犬、老猫ホームといった役割や、オーナー様の様々な事情による長期でのお預かりも！
+					</p>
+					<a href="contact.html" class="btn logo-button top-margin">お問い合わせ</a>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="w3l-teams-15">
+		<div class="team-single-main editContent">
+			<div class="container">
+				<div class="row">
+					<div class="column2 col-lg-6">
+						<img src="assets/images/5.jpg" alt="product" class="img-responsive ">
+					</div>
+					<div class="column2 image-text col-lg-6">
+						<h3 class="team-head editContent">私たちは彼らを本当に<span class="color-text editContent">幸せにする</span>
+						</h3>
+						<p class="para editContent text ">
+							あにまるケアハウスでは、ワンちゃん1頭1頭の性格を細かく把握してグループ分けを行い、お預かりします。
+							犬舎とドックランは自由に行き来できるようにスロープを設けてあります。
+							またセキリュティを万全の体制とするため、フェンスを設置しています。</p>
+						<div class="pet-animals">
+							<div class="pet-grid one-img">
+								<h6><a href="#page">最低価格</a></h6>
+								<p class="para">
+								</p>
+							</div>
+							<div class="pet-grid two-img">
+								<h6><a href="#page">健康なペット</a></h6>
+								<p class="para">
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<section class="w3l-call-to-action_9">
+		<div class="call-w3 editContent">
+			<div class="container">
+				<div class="grids">
+					<div class="grids-content row">
+						<div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+							<div class="bg-color-white">
+								<div class="span-color editContent">
+									<span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+								</div>
+								<h4><a href="about.html" class=" editContent">経験豊富なスタッフ</a></h4>
+								<p class="para editContent"></p>
+
+							</div>
+						</div>
+						<div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+							<div class="bg-color-white">
+								<div class="span-color editContent">
+									<span class="fa fa-smile-o" aria-hidden="true"></span>
+								</div>
+								<h4><a href="about.html" class=" editContent">トップクラスの設備</a></h4>
+								<p class="para editContent"></p>
+
+							</div>
+						</div>
+
+						<div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+							<div class="bg-color-white">
+								<div class="span-color editContent">
+									<span class="fa fa-laptop" aria-hidden="true"></span>
+								</div>
+								<h4><a href="about.html" class=" editContent">簡単な相談</a></h4>
+								<p class="para editContent"></p>
+
+							</div>
+						</div>
+						<div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+							<div class="bg-color-white">
+								<div class="span-color editContent">
+									<span class="fa fa-diamond" aria-hidden="true"></span>
+								</div>
+								<h4><a href="about.html" class=" editContent">毛皮の切り抜き</a></h4>
+								<p class="para editContent"></p>
+
+							</div>
+						</div>
+						<div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+							<div class="bg-color-white">
+								<div class="span-color editContent">
+									<span class="fa fa-magic" aria-hidden="true"></span>
+								</div>
+								<h4><a href="about.html" class=" editContent"> 耳掃除
+									</a></h4>
+								<p class="para editContent"></p>
+
+							</div>
+						</div>
+						<div class="column col-lg-4 col-md-6 col-sm-6 color-2 editContent">
+							<div class="bg-color-white">
+								<div class="span-color editContent">
+									<span class="fa fa-check" aria-hidden="true"></span>
+								</div>
+								<h4><a href="about.html" class=" editContent">自由にしながら遊びます</a></h4>
+								<p class="para editContent"></p>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="w3l-specification-6">
+		<div class="specification-layout editContent">
+			<div class="container">
+				<div class=" row">
+	</section>
+	<section class="w3l-clients">
+		<div class="main-w3">
+			<div class="container">
+				<div class="apply-grids-info ">
+					<div class="apply-gd-left ">
+						<h3>予約する <span class="color-text editContent"></span></h3>
+						<p class="para">ご利用上のお願い及び注意点</p>
+						<li class="para">随時ご見学も行っておりますのでお気軽にご連絡ください。</li>
+						<li class="para">お預かりの前にお客様とカウンセリングをさせていただきます。</li>
+						<li class="para">お預かりするペットの年齢に制限はございません。</li>
+					</div>
+					<div class="apply-form p-sm-5 p-4">
+						<form action="#" method="post">
+							<div class="admission-form">
+								<div class="form-group">
+									<div class="c-label c-required">
+										お名前
+									</div>
+									<br>
+									<input type="text" class="form-control" placeholder="" required="">
+								</div>
+								<div class="form-group">
+									<div class="c-label c-required">
+										電話番号
+									</div>
+									<br>
+									<input type="text" class="form-control" placeholder="" required="">
+								</div>
+								<div class="form-group">
+									<div class="c-label c-required">
+										メールアドレス
+									</div>
+									<br>
+									<input type="email" class="form-control" placeholder="" required="">
+								</div>
+								<div class="form-group">
+									<div class="c-label c-required">
+										サービス種別
+									</div>
+									<br>
+									<select class="form-control">
+										<option></option>
+										<option>Service Type</option>
+										<option>Ear Cleaning</option>
+										<option>Clipping Fur</option>
+										<option>Brushing</option>
+										<option>Nail Trim</option>
+										<option>Grooming Program</option>
+										<option>Others</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div>
+									メッセージ
+								</div>
+								<textarea name="Comment" class="form-control" placeholder="" required=""></textarea>
+							</div>
+							<div class="text-right">
+								<button type="submit" class="btn btn-primary submit action-button">確認画面へ進む</button>
+							</div>
+							<input type="hidden" id="msg" th:value="${session.msg}">
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="w3l-covers-18">
+		<div class="covers-main editContent">
+			<div class="main-titles-head text-center">
+				<h3 class="header-name editContent">
+					ペットギャラリー
+				</h3>
+				<p class="tiltle-para editContent editContent"> </p>
+			</div>
+			<div class="container">
+				<div class="gallery-image">
+					<div class="img-box">
+						<a href="#page"> <img src="assets/images/12.jpg" alt="product" class="img-responsive "></a>
+
+						<div class="caption">
+							<h6><a href="#page">ゴールデン・ブラウン・ドッグ</a></h6>
+							<p class="para"></p>
+						</div>
+					</div>
+
+					<div class="img-box">
+						<a href="#page"> <img src="assets/images/13.jpg" alt="product" class="img-responsive "></a>
+
+						<div class="caption">
+							<h6><a href="#page">プードル</a></h6>
+							<p class="para"></p>
+						</div>
+
+					</div>
+					<div class="img-box">
+						<a href="#page"> <img src="assets/images/8.jpg" alt="product" class="img-responsive "></a>
+
+						<div class="caption">
+							<h6><a href="#page">ダックスフント</a></h6>
+							<p class="para"></p>
+						</div>
+
+					</div>
+					<div class="img-box">
+						<a href="#page"><img src="assets/images/9.jpg" alt="product" class="img-responsive "></a>
+
+						<div class="caption">
+							<h6><a href="#page">フレンチ・ブルドッグ</a></h6>
+							<p class="para"></p>
+						</div>
+
+					</div>
+					<div class="img-box">
+						<a href="#page"><img src="assets/images/10.jpg" alt="product" class="img-responsive "></a>
+
+						<div class="caption">
+							<h6><a href="#page">パグ</a></h6>
+							<p class="para"></p>
+
+						</div>
+					</div>
+					<div class="img-box">
+						<a href="#page"><img src="assets/images/11.jpg" alt="product" class="img-responsive "></a>
+
+						<div class="caption">
+							<h6><a href="#page">ラブラドール</a></h6>
+							<p class="para"></p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="w3l-footer-29-main">
+		<div class="footer-29 py-5">
+			<div class="container py-lg-4">
+				<div class="row footer-top-29">
+					<div class="col-lg-5 col-md-6 col-sm-12 footer-list-29 footer-1">
+						<h2><a href="index.html" class=""><span class="fa fa-paw mr-2" aria-hidden="true"></span> Pet
+								Sitter</a></h2>
+						<p>Adipisicing elit. Lauda ntium, archi tecto iure Lorem incidunt iosam qui quo moll itia veniam
+							recus andae archi tecto earum suscipit exce pturi dicta nemo quam.</p>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3">
+						<h6 class="footer-title-29">Get in Touch</h6>
+
+						<div class="column2">
+							<div class="href1"><span>E-mail:</span><a
+									href="mailto:mail@company.com">mail@company.com</a>
+							</div>
+							<div class="href2"><span>Phone:</span><a href="tel:+(12)-00 222 00008">+(12)-00 222
+									00008</a>
+							</div>
+							<div>
+								<p class="contact-para">California, 75 West Rock,
+									Maple Building.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4">
+						<h6 class="footer-title-29">Newsletter </h6>
+						<p>Enter your email and receive the latest news from us.
+							We'll never share your email address</p>
+
+						<form action="#" class="subscribe" method="post">
+							<input type="email" name="email" placeholder="Your Email Address" required="">
+							<button><span class="fa fa-envelope-o"></span></button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="bottom-copies text-center">
+			<div class="container">
+				<p class="copy-footer-29">Copyright &copy; 2020.Company name All rights reserved.</p>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- move top -->
+	<button onclick="topFunction()" id="movetop" title="Go to top">
+		<span class="fa fa-eject"></span>
+	</button>
+	<script>
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("movetop").style.display = "block";
+			} else {
+				document.getElementById("movetop").style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+		function showDropdownMenu() {
+			$('#navbarDropdown').dropdown('show');
+		}
+
+		function hideDropdownMenu() {
+			$('#navbarDropdown').dropdown('hide');
+		}
+		let hasAlerted = false;
+
+		$(function () {
+			// 在页面加载后延迟一段时间以确保 msg 已经设置
+			if (!hasAlerted) {
+				setTimeout(msgAlert, 300);
+				// 将变量名拼写正确，并将值设为 true
+				hasAlerted = true;
+			}
+		});
+
+	
+
+
+		function msgAlert() {
+			// 获取隐藏字段中的 msg 值
+			var msg = $("#msg").val();
+			// 如果 msg 存在且不为空，则显示警报
+			if (msg && msg !== "") {
+				alert(msg);
+			}
+		}
+	</script>
+	<!-- /move top -->
+	<style>
+		.copyrights {
+			text-indent: -9999px;
+			height: 0;
+			line-height: 0;
+			font-size: 0;
+			overflow: hidden;
+		}
+	</style>
+	<div class="copyrights">
+		Collect from <a href="http://www.cssmoban.com/" title="网站模板">模板之家</a>
+		<a href="https://www.chazidian.com/" title="查字典">查字典</a>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+function validateForm() {
+    var petid = document.getElementById("petid").value;
+    var storeid = document.getElementById("storeid").value;
+    var startDate = new Date(document.getElementById("startdate").value);
+    var endDate = new Date(document.getElementById("enddate").value);
+    var serviceType = document.getElementById("serviceType").value;
+
+    if (isNaN(petid) || petid === '') {
+        document.getElementById("petidMsg").innerText = "Number only";
+        return false;
+    } else {
+        document.getElementById("petidMsg").innerText = "";
+    }
+
+    if (storeid === '店铺') {
+        alert("Please select a store");
+        return false;
+    }
+
+    if (startDate >= endDate) {
+        alert("End date must be greater than start date");
+        return false;
+    }
+
+    if (serviceType === 'Service Type') {
+        alert("Please select a service type");
+        return false;
+    }
+
+    return true;
+}

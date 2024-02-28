@@ -1,0 +1,13 @@
+package jp.co.brightstar.petshop.model;
+
+import lombok.Data;
+
+@Data
+public class Order {
+	private String orderid;
+	private String storenm;
+	private String svssyate;
+	private String startDate;
+	private String endDate;
+
+}

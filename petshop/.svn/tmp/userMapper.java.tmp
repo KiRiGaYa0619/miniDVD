@@ -1,0 +1,24 @@
+package jp.co.brightstar.petshop.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import jp.co.brightstar.petshop.model.customer;
+import jp.co.brightstar.petshop.model.pet;
+
+@Mapper
+public interface userMapper {
+<<<<<<< .mine
+		String pwdCheck(String userid); 
+		customer findCustomerById(String userid);
+		List<pet> findPetById(String userid);
+||||||| .r12
+=======
+	String pwdCheck(String userid);
+
+	customer findCustomerById(String userid);
+
+	pet findPetById(String userid);
+>>>>>>> .r13
+}

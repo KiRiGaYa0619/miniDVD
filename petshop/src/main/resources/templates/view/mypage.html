@@ -37,10 +37,10 @@
 								<a class="nav-link" th:href=@{index}>ホーム <span class="sr-only">(current)</span></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="about.html">預かり予約</a>
+								<a class="nav-link"  th:href=@{about}>当店について</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="services.html">履歴</a>
+								<a class="nav-link" th:href=@{service}>サービス</a>
 							</li>
 							<!-- 根据登录状态显示或隐藏右上角的下拉菜单 -->
 							<li class="nav-item dropdown" th:if="${isLoggedIn}" onmouseover="showDropdownMenu()"
@@ -50,7 +50,7 @@
 									マイページ
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
-									<a class="dropdown-item" th:href=@{/mypage} style="color: azure;">個人情報</a>
+									<a class="dropdown-item" th:href="@{mypage}" style="color: azure;">個人情報</a>
 									<a class="dropdown-item" th:href="@{logout}" style="color: azure;">ログアウト</a>
 								</div>
 							</li>
@@ -115,7 +115,12 @@
 								<div><strong>電話番号：</strong><span th:text="${customer.tel}"></span></div><br>
 								<div><strong>メールアドレス：</strong><span th:text="${customer.mail}"></span></div><br>
 								<div><strong>パスワード：</strong><span th:text="${customer.pwd}"></span></div><br>
-							</div>
+								<br>
+<!--								<a th:data-id="${customer.userid}" th:data-mail="${customer.mail}"-->
+<!--								th:data-pwd="${customer.pwd}"-->
+<!--								th:onclick="changeInfo(parseInt(this.getAttribute('data-id')), this.getAttribute('data-mail'), parseInt(this.getAttribute('data-pwd')));">-->
+<!--								<i class="fa fa-arrow-circle-right fa-fw"></i>変更確認 </a>-->
+							</div >
 						</div>
 					</div>
 				</div>
@@ -138,11 +143,11 @@
 						</thead>
 						<tbody>
 							<tr th:each="p : ${pet}">
-								<td th:text="${pet.petid}"></td>
-								<td th:text="${pet.petname}"></td>
-								<td th:text="${pet.age}"></td>
-								<td th:text="${pet.type}"></td>
-								<td th:text="${pet.gender}"></td>
+								<td th:text="${p.petid}"></td>
+								<td th:text="${p.petname}"></td>
+								<td th:text="${p.getAgeStr()}"></td>
+								<td th:text="${p.getTypeStr}"></td>
+								<td th:text="${p.getGenderStr}"></td>
 							</tr>
 						</tbody>
 					</table>

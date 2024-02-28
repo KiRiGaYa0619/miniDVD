@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>About</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+	
+		
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+		  let sliderIndex = 0;
+		  const slides = document.querySelectorAll('.csslider input[type="radio"]');
+		  
+		  function changeSlide() {
+			slides[sliderIndex].checked = true;
+			sliderIndex = (sliderIndex + 1) % slides.length;
+		  }
+		  
+		  setInterval(changeSlide, 3000); // Change image every 3 seconds
+		});
+	</script>
+		
+ </head>
+  <body id="home">
+<section class=" w3l-header-4 header-sticky">
+		<header class="absolute-top">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<h1><a class="navbar-brand" th:href=@{/index}><span class="fa fa-paw mr-2"
+								aria-hidden="true"></span>
+							神田　ペット　ショップ
+						</a></h1>
+					<button class="navbar-toggler bg-gradient collapsed" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="fa icon-expand fa-bars"></span>
+						<span class="fa icon-close fa-times"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" th:href=@{index}>ホーム <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"  th:href=@{about}>当店について</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" th:href=@{service}>サービス</a>
+							</li>
+							<!-- 根据登录状态显示或隐藏右上角的下拉菜单 -->
+							<li class="nav-item dropdown" th:if="${isLoggedIn}" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									マイページ
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item" th:href="@{mypage}" style="color: azure;">個人情報</a>
+									<a class="dropdown-item" th:href="@{logout}" style="color: azure;">ログアウト</a>
+								</div>
+							</li>
+
+							<li class="nav-item dropdown" th:unless="${isLoggedIn}" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									登録
+								</a>
+								<div class="dropdown-menu " aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item " th:href=@{/contact} style="color: azure;">会員登録</a>
+									<a class="dropdown-item" th:href=@{/login} style="color: azure;">ログイン</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+			</nav>
+			</div>
+		</header>
+	</section>
+
+<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+<!--bootstrap working-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- //bootstrap working-->
+<!-- disable body scroll which navbar is in active -->
+<script>
+$(function () {
+  $('.navbar-toggler').click(function () {
+    $('body').toggleClass('noscroll');
+  })
+});
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- breadcrumbs -->
+<section class="w3l-inner-banner-main">
+    <div class="about-inner editContent">
+<div class="container">   
+<ul class="breadcrumbs-custom-path">
+    <li class="right-side propClone"><a href="index.html" class="editContent">ホーム <span class="fa fa-angle-right" aria-hidden="true"></span></a> <p></li>
+    <li class="right-side propClone"><a href="index.html" class="editContent">当店について <span class="fa fa-angle-right" aria-hidden="true"></span></a> <p></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- breadcrumbs //-->
+<section class="w3l-content-with-photo-4"  id="about">
+    <div class="content-with-photo4-block editContent">
+        <div class="container">
+            <div class="cwp4-two row">
+            <div class="cwp4-image col-lg-6">
+                <img src="assets/images/14.jpg" alt="product" class="img-responsive about-me">
+            </div>
+                <div class="cwp4-text col-lg-6 ">
+                    <div class="posivtion-grid">
+                    <h3 class="editContent"> 神田 ペットホテルのお泊りの特徴<span class="color-text"></span></h3>
+                    <ul>
+                        <li><span class="fa fa-circle mr-2" aria-hidden="true"></span>24時間専門スタッフが常駐（一部店舗は夜間はWebカメラになります)</li>
+                        <li><span class="fa fa-circle mr-2" aria-hidden="true"></span>ロングステイ制</li>
+                        <li><span class="fa fa-circle mr-2" aria-hidden="true"></span>お散歩は朝夕2回</li>
+                        <li><span class="fa fa-circle mr-2" aria-hidden="true"></span>高齢・要介護もお泊りできます</li>
+						<li><span class="fa fa-circle mr-2" aria-hidden="true"></span>贅沢な食事で安心</li>
+						<li><span class="fa fa-circle mr-2" aria-hidden="true"></span>送迎あり</li></br>
+						<p class="para editContent">年末年始の12月29日〜1月8日は初回限定20％割引キャンペーン対象外となります。</p>
+                        
+                    </ul>
+               
+            </div>
+            
+        </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="w3l-team-main-6" id="team">
+	<!-- /team-grids -->
+	<div class="team-content-page editContent">
+		<div class="container">
+			<div class="main-contteam-28">
+				<div class="team-main-19 ">
+					<div class="column-19">
+						<a href="#page"><img class="img-responsive" src="assets/images/t5.jpg" alt=" "></a>
+					</div>
+					<div class="right-team-9">
+						<h6><a href="#page" class="title-team-28">スタッフ常駐</a></h6></br>	
+						<p class="sm-text-28">・24時間専門スタッフが常駐（一部店舗は夜間はWebカメラになります)。</p>
+						<p class="sm-text-28">・万が一の時も近隣に提携動物病院があるので安心です。</p>
+								
+
+					</div>
+				</div>
+				<div class="team-main-19">
+					<div class="column-19">
+						<a href="#page"><img class="img-responsive" src="assets/images/t8.jpg" alt=" "></a>
+					</div>
+					<div class="right-team-9">
+						<h6><a href="#page" class="title-team-28">ロングステイ制</a></h6></br>
+						<p class="sm-text-28">・朝9:00～翌日夜18:00迄お預けになっても１泊の料金です。
+						<p class="sm-text-28">・飼主様の１泊旅行の時などに大変ご好評です。</p>
+				
+					</div>
+				</div>
+				<div class="team-main-19 ">
+					<div class="column-19">
+						<a href="#page"><img class="img-responsive" src="assets/images/t7.jpg" alt=" "></a>
+					</div>
+					<div class="right-team-9">
+						<h6><a href="#page" class="title-team-28">お散歩は朝夕2回</a></h6></br>
+						<p class="sm-text-28">・お散歩は基本朝夕２回。健康面はもちろん、お泊りがストレスにならないように15～20分のお散歩です。</p>
+						
+				
+					</div>
+				</div>
+				<div class="team-main-19 ">
+					<div class="column-19">
+						<a href="#page"><img class="img-responsive" src="assets/images/t6.jpg" alt=" "></a>
+					</div>
+					<div class="right-team-9">
+						<h6><a href="#page" class="title-team-28">高齢・要介護もお泊りできます！</a></h6></br>
+						<p class="sm-text-28">・「寝たきり」等、介護が必要な場合でもお預かりできますので、お気軽にご相談下さい。</p>
+						<p class="sm-text-28">・盲目・軽度なてんかん・後ろ両足が動かない等、身体的病気・障害がある場合でもご相談下さい。</p>
+						<p class="sm-text-28">・その他、ご心配な点がございましたらスタッフまでお気軽にご相談下さい。</p>
+					</div>
+				</div>
+				<div class="team-main-19">
+					<div class="column-19">
+						<a href="#page"><img class="img-responsive" src="assets/images/t10.jpg" alt=" "></a>
+					</div>
+					<div class="right-team-9">
+						<h6><a href="#page" class="title-team-28">贅沢な食事で安心</a></h6></br>
+						<p class="sm-text-28">・健康を考え、保存料・着色料・香料などの添加物は一切使用していません。万全の衛生管理の下で作られています。</p>
+						<p class="sm-text-28">・食材そのものの味・香り・栄養を最大限にいかした必要最小限の加熱処理で、美味しく作られています。</p>
+						
+				
+					</div>
+				</div>
+				<div class="team-main-19">
+					<div class="column-19">
+						<a href="#page"><img class="img-responsive" src="assets/images/t9.jpg" alt=" "></a>
+					</div>
+					<div class="right-team-9">
+						<h6><a href="#page" class="title-team-28">送迎あり</a></h6></br>
+						<p class="sm-text-28">・お泊り送迎は、午前（9時～12時）・午後1（12時～15時）・午後2（15時～18時）の3つの時間帯での送迎となります。</p>
+						<p class="sm-text-28">・トリミング送迎は、2時間幅でご指定下さい。</p>
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /team-grids -->
+</section>
+<section class="w3l-about ">
+	<div class="skills-bars editContent text-center">
+		  <div class="container">
+			<section class="section01 pet-hotel pet-hotel--assort pet-hotel--assort01">
+				<h2 class="title01">ペットちゃんのお部屋とお泊り料金</h2>
+				<div class="priceList">
+				  <img class="priceList__img" src="assets/images/t12.jpg" alt="">
+				</div>
+			  </section>
+
+
+			<!-- <h3>ペットちゃんのお部屋とお泊り料金</h3> -->
+
+			<!-- <p class="para mt-md-4 mt-3">#####</p> -->
+		  </div>
+	</div>
+</section>
+<section class="w3l-recent-work">
+	<h2 class="title01" style="text-align:center;">神田ペットの施設紹介</h2>
+
+  <div class="jst-two-col">
+	  <div class="container">
+		  <div class="content-photo-1 row">
+			  <div class="content-photo-left_sur col-lg-6">
+				  <h3><span class="color-text"> フロントプレイルーム</span></h3>	 
+				  <p class="para mt-3">足元迄ガラス張りでお外がよく見えるプレイルームです。お外が苦手なワンちゃんも早く慣れることができます。</p>
+
+				  
+					  <!-- <a href="#.html" class="action-button btn mt-md-4 mt-3">Read more</a> -->
+			  </div>
+			  <div class="content-photo-right_sur col-lg-6">
+				  <div class="csslider infinity" id="slider1">
+						  <!-- <input type="radio" name="slides" checked="checked" id="slides_1">
+						  <input type="radio" name="slides" id="slides_2">
+						  <input type="radio" name="slides" id="slides_3">
+						  <ul class="banner_slide_bg">
+							  <li> -->
+								  <img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_about_3.jpg" alt="フロントプレイルーム">
+							  <!-- </li> -->
+						  
+						  <!-- </ul>
+						  <div class="arrows">
+							  <label for="slides_1"></label>
+							  <label for="slides_2"></label>
+							  <label for="slides_3"></label>
+						  </div>
+						  <div class="navigation">
+							  <div>
+								  <label for="slides_1"></label>
+								  <label for="slides_2"></label>
+								  <label for="slides_3"></label>
+							  </div>
+						  </div> -->
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+  </div>
+</section>
+<section class="w3l-recent-work">
+	<div class="jst-two-col">
+		<div class="container">
+			<div class="content-photo-1 row">
+				<div class="content-photo-left_sur col-lg-6">
+					<h3><span class="color-text"> 室内プレイルーム</span></h3>
+					<!-- <span class="price">外観</span> -->
+					<p class="para mt-3">ペットちゃんもたくさん走りまわることもでき、色々なワンちゃんとふれ合うこともできるので、楽しく過ごすことができます。</p>
+					<p class="para mt-3">遊ぶ時間もお勉強の時間もストレス無く過ごすことができます。</p>
+					<p class="para mt-3">それぞれのペットちゃんのサイズに合わせた清潔なクレートです。</p>
+
+						<!-- <a href="#.html" class="action-button btn mt-md-4 mt-3">Read more</a> -->
+				</div>
+				<div class="content-photo-right_sur col-lg-6">
+					<div class="csslider infinity" id="slider1">
+							<input type="radio" name="slides" checked="checked" id="slides_1">
+							<input type="radio" name="slides" id="slides_2">
+							<input type="radio" name="slides" id="slides_3">
+							<ul class="banner_slide_bg">
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_about_4.jpg" alt="室内プレイルーム①">
+								</li>
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_about_5.jpg" alt="室内プレイルーム②">
+								</li>
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_hotel_1.jpg" alt="ペットホテル（スタンダード）">
+								</li>
+							
+							</ul>
+							<div class="arrows">
+								<label for="slides_1"></label>
+								<label for="slides_2"></label>
+								<label for="slides_3"></label>
+							</div>
+							<div class="navigation">
+								<div>
+									<label for="slides_1"></label>
+									<label for="slides_2"></label>
+									<label for="slides_3"></label>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </section>
+  <section class="w3l-recent-work">
+	<div class="jst-two-col">
+		<div class="container">
+			<div class="content-photo-1 row">
+				<div class="content-photo-left_sur col-lg-6">
+					<h3><span class="color-text"> ペットホテル</span></h3>
+					<!-- <span class="price">外観</span> -->
+					<p class="para mt-3">畳、1/2畳程度のゆったりケージ室。<br>
+						小型・中型ペットまでの大きさのご利用になります。</p>
+					<p class="para mt-3">１畳弱のゆったりしたサークルルームです。ケージがどうしても苦手なワンちゃんや中・大型ペット、連泊にもおすすめしています。</p>	
+					<p class="para mt-3">3畳程度でゆったりのびのびスペースです。 </p>	
+
+						<!-- <a href="#.html" class="action-button btn mt-md-4 mt-3">Read more</a> -->
+				</div>
+				<div class="content-photo-right_sur col-lg-6">
+					<div class="csslider infinity" id="slider1">
+							<input type="radio" name="slides" checked="checked" id="slides_1">
+							<input type="radio" name="slides" id="slides_2">
+							<input type="radio" name="slides" id="slides_3">
+							<ul class="banner_slide_bg">
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_hotel_2-2.jpg" alt="ペットホテル（スーペリア）">
+								</li>
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_hotel_2.jpg" alt="ペットホテル（ミニスイート）">
+								</li>
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_hotel_7.jpg" alt="ペットホテル（スイート）">
+								</li>
+							
+							</ul>
+							<div class="arrows">
+								<label for="slides_1"></label>
+								<label for="slides_2"></label>
+								<label for="slides_3"></label>
+							</div>
+							<div class="navigation">
+								<div>
+									<label for="slides_1"></label>
+									<label for="slides_2"></label>
+									<label for="slides_3"></label>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </section>
+  <section class="w3l-recent-work">
+	<div class="jst-two-col">
+		<div class="container">
+			<div class="content-photo-1 row">
+				<div class="content-photo-left_sur col-lg-6">
+					<h3><span class="color-text"> お散歩コース</span></h3>
+					<!-- <span class="price">外観</span> -->
+					<p class="para mt-3">自然が豊富なお散歩コース。<br>気持よくお散歩が出来ます！</p>
+					<p class="para mt-3">広々としたお散歩コース！どこまでも続くのどかな景色を楽しみながら楽しく安全に歩けます。</p>
+					<p class="para mt-3">雨の日のお散歩の変わりや、トレーニングを行うコースもあります。</p>
+
+
+					
+						<!-- <a href="#.html" class="action-button btn mt-md-4 mt-3">Read more</a> -->
+				</div>
+				<div class="content-photo-right_sur col-lg-6">
+					<div class="csslider infinity" id="slider1">
+							<input type="radio" name="slides" checked="checked" id="slides_1">
+							<input type="radio" name="slides" id="slides_2">
+							<input type="radio" name="slides" id="slides_3"> 
+							<ul class="banner_slide_bg">
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_hotel_4.jpg" alt="お散歩コース１">
+							 </li> 
+								<li>
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_about_10.jpg" alt="お散歩コース２" width="807" height="288">
+								</li>
+								<li> 
+									<img class="img" src="https://www.nonby-house.com/wd/wp-content/themes/nonby/img/img_about_9.jpg" alt="トレッドミル">
+								</li>
+							
+							</ul>
+							<div class="arrows">
+								<label for="slides_1"></label>
+								<label for="slides_2"></label>
+								<label for="slides_3"></label>
+							</div>
+							<div class="navigation">
+								<div>
+									<label for="slides_1"></label>
+									<label for="slides_2"></label>
+									<label for="slides_3"></label>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </section>
+
+<section class="w3l-footer-29-main">
+	<div class="footer-29 py-5">
+	  <div class="container py-lg-4">
+		<div class="row footer-top-29">
+		  <div class="col-lg-5 col-md-6 col-sm-12 footer-list-29 footer-1">
+				<h2><a href="index.html" class=""><span class="fa fa-paw mr-2" aria-hidden="true"></span> お支払い</a></h2>
+				<p>ペットホテル料金のお支払いは、現金・クレジットカード・PayPay・LINEPAYご利用いただけます。</p>
+  </div>
+		  <div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3">
+			  <h6 class="footer-title-29">店舗案内</h6>
+			  <p>年中無休・営業時間１０時～１９時</p>
+			  <div class="column2">
+								<div class="href1"><span>E-mail:</span><a href="kanda-pethotel@gmail.com">kanda-pethotel@gmail.com</a>
+								</div>
+								<div class="href2"><span>Phone:</span><a href="tel:03-6231-1143">03-6231-1143</a>
+								</div>
+								<div>
+									<p class="contact-para">【本店】
+										〒116-0014 東京都荒川区東日暮里5-52-6 折原ビル4F、8F</p>
+								</div>
+							</div>
+		  </div>
+		  <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4">
+			<h6 class="footer-title-29">ニュースレター </h6>
+			<p>私たちのチームが、ペットのケアとトレーニングに関する温かい専門アドバイスを提供し、愛するペットの健康と幸福をサポートします！
+				</p>
+  
+			<form action="#" class="subscribe" method="post">
+			  <input type="email" name="email" placeholder="メールアドレス" required="">
+			  <button><span class="fa fa-envelope-o"></span></button>
+			</form>
+		  </div>
+		</div>
+
+	  </div>
+	</div>
+	<div class="bottom-copies text-center">
+		<div class="container">
+		<p class="copy-footer-29">Copyright &copy; 2020.Company name All rights reserved.</p>
+	</div>
+	</div>
+  </section>
+
+
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-eject"></span>
+</button>
+<script>
+	function showDropdownMenu() {
+			$('#navbarDropdown').dropdown('show');
+		}
+
+		function hideDropdownMenu() {
+			$('#navbarDropdown').dropdown('hide');
+		}
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+
+</html>

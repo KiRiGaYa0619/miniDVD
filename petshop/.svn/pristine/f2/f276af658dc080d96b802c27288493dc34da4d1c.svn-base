@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>service</title>
+    <!-- 引入 Bootstrap 的 CSS 文件 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <link href="../sample/tableofsample.css" rel="stylesheet"> 
+    <link href="../sample/formofsample.css.css" rel="stylesheet">
+</head>
+
+<body id="home">
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal" style="display: none">
+        <!-- Modal content -->
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">来店履歴</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    注文番号
+                                    <small>OrderID </small>
+                                </th>
+                                <th>
+                                    ペット名
+                                    <small>PetName</small>
+                                </th>
+                                <th>
+                                    サービス内容
+                                    <small>Service content</small>
+                                </th>
+                                <th>
+                                    開始時間
+                                    <small>Start time</small>
+                                </th>
+                                <th>
+                                    終了時間
+                                    <small>finish time</small>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <th>0035762</th>
+                                <td>None (auto)</td>
+                                <td>750px</td>
+                                <td>970px</td>
+                                <td>1170px</td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal2" class="modal" style="display: none">
+        <div class='signup-container'>
+          <div class='left-container'>
+            <h1>
+              <i class='fas fa-paw'></i>
+              PUPASSURE
+            </h1>
+            <div class='puppy'>
+              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'>
+            </div>
+          </div>
+          <div class='right-container'>
+            <header>
+              <h1>添加宠物</h1>
+              <div class='set'>
+                <div class='pets-name my-modal-class'>
+                  <label for='pets-name'>Name</label>
+                  <input id='pets-name' placeholder="Pet's name" type='text'>
+                </div>
+                <div class='pets-photo my-modal-class'>
+                  <button id='pets-upload'>
+                    <i class='fas fa-camera-retro'></i>
+                  </button>
+                  <label for='pets-upload'>Upload a photo</label>
+                </div>
+              </div>
+              <div class='set'>
+                <div class='pets-breed my-modal-class'>
+                  <label for='pets-breed'>Breed</label>
+                  <input id='pets-breed' placeholder="Pet's breed" type='text'>
+                </div>
+                <div class='pets-birthday my-modal-class'>
+                  <label for='pets-birthday'>Birthday</label>
+                  <input id='pets-birthday' placeholder='MM/DD/YYYY' type='text'>
+                </div>
+              </div>
+              <div class='set'>
+                <div class='pets-gender my-modal-class'>
+                  <label for='pet-gender-female'>Gender</label>
+                  <div class='radio-container'>
+                    <input checked='' id='pet-gender-female' name='pet-gender' type='radio' value='female'>
+                    <label for='pet-gender-female'>Female</label>
+                    <input id='pet-gender-male' name='pet-gender' type='radio' value='male'>
+                    <label for='pet-gender-male'>Male</label>
+                  </div>
+                </div>
+                <div class='pets-spayed-neutered my-modal-class'>
+                  <label for='pet-spayed'>Spayed or Neutered</label>
+                  <div class='radio-container'>
+                    <input checked='' id='pet-spayed' name='spayed-neutered' type='radio' value='spayed'>
+                    <label for='pet-spayed'>Spayed</label>
+                    <input id='pet-neutered' name='spayed-neutered' type='radio' value='neutered'>
+                    <label for='pet-neutered'>Neutered</label>
+                  </div>
+                </div>
+              </div>
+              <div class='pets-weight my-modal-class'>
+                <label for='pet-weight-0-25'>Weight</label>
+                <div class='radio-container'>
+                  <input checked='' id='pet-weight-0-25' name='pet-weight' type='radio' value='0-25'>
+                  <label for='pet-weight-0-25'>0-25 lbs</label>
+                  <input id='pet-weight-25-50' name='pet-weight' type='radio' value='25-50'>
+                  <label for='pet-weight-25-50'>25-50 lbs</label>
+                  <input id='pet-weight-50-100' name='pet-weight' type='radio' value='50-100'>
+                  <label for='pet-weight-50-100'>50-100 lbs</label>
+                  <input id='pet-weight-100-plus' name='pet-weight' type='radio' value='100+'>
+                  <label for='pet-weight-100-plus'>100+ lbs</label>
+                </div>
+              </div>
+            </header>
+            <footer>
+              <div class='set'>
+                <button id='back'>Back</button>
+                <button id='next'>Next</button>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    <!-- The Modal -->
+
+    <section class=" w3l-header-4 header-sticky">
+		<header class="absolute-top">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<h1><a class="navbar-brand" th:href=@{/index}><span class="fa fa-paw mr-2"
+								aria-hidden="true"></span>
+							神田　ペット　ショップ
+						</a></h1>
+					<button class="navbar-toggler bg-gradient collapsed" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="fa icon-expand fa-bars"></span>
+						<span class="fa icon-close fa-times"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" th:href=@{index}>ホーム <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"  th:href=@{about}>当店について</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" th:href=@{service}>サービス</a>
+							</li>
+							<!-- 根据登录状态显示或隐藏右上角的下拉菜单 -->
+							<li class="nav-item dropdown" th:if="${isLoggedIn}" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									マイページ
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item" th:href="@{mypage}" style="color: azure;">個人情報</a>
+									<a class="dropdown-item" th:href="@{logout}" style="color: azure;">ログアウト</a>
+								</div>
+							</li>
+
+							<li class="nav-item dropdown" th:unless="${isLoggedIn}" onmouseover="showDropdownMenu()"
+								onmouseout="hideDropdownMenu()">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									登録
+								</a>
+								<div class="dropdown-menu " aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
+									<a class="dropdown-item " th:href=@{/contact} style="color: azure;">会員登録</a>
+									<a class="dropdown-item" th:href=@{/login} style="color: azure;">ログイン</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+			</nav>
+			</div>
+		</header>
+	</section>
+
+    <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+    <!--bootstrap working-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- //bootstrap working-->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+
+    <!-- breadcrumbs -->
+    <section class="w3l-inner-banner-main">
+        <div class="about-inner editContent">
+            <div class="container">
+                <ul class="breadcrumbs-custom-path">
+                    <li class="right-side propClone"><a href="index.html" class="editContent">ホーム <span
+                                class="fa fa-angle-right" aria-hidden="true"></span></a>
+                        <p>
+                    </li>
+                    <li class="active editContent">サービス</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumbs //-->
+    <section class="w3l-recent-work-hobbies" id="services">
+        <div class="recent-work editContent">
+            <div class="container">
+                <div class="apply-grids-info ">
+                    <div class="container">
+                        <div class="row about-about">
+                            <div class="col-lg-4 col-md-6 col-sm-6 propClone about-line-top">
+                                <div class="pet-grid-row">
+                                    <img src="assets/images/f5.jpg" alt="product" class="img-responsive about-me">
+                                    <div class="about-grids editContent">
+                                        <h5><a th:href=@{booking1} class="editContent">ペットホテル</a></h5>
+                                        <p class="para editContent">飼い主がペットの世話をすること
+                                            ができない場合に、ペットを預けるためのサービスで、ペットのケアと管理を行います。 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 propClone about-line-top">
+                                <div class="pet-grid-row">
+                                    <img src="assets/images/f4.jpg" alt="product" class="img-responsive about-me">
+                                    <div class="about-grids editContent">
+                                        <h5><a href="#page" class="editContent">ペットグルーミング</a></h5>
+                                        <p class="para editContent">ペットの美容 - 爪のカット、耳の清掃、毛の整えなどのペット
+                                            の美容サービスを提供し、ペットの衛生と快適さを保ちます。 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 propClone about-line-top">
+                                <div class="pet-grid-row">
+                                    <img src="assets/images/f3.jpg" alt="product" class="img-responsive about-me">
+                                    <div class="about-grids editContent">
+                                        <h5><a href="#page" class="editContent">ペット診療所</a></h5>
+                                        <p class="para editContent">ペットクリニック - ペットの医療保健サービスを提供し、
+                                            予防接種、治療、手術などを行い、ペットの健康と幸福を確保します。 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 propClone about-line-top">
+                                <div class="pet-grid-row">
+                                    <img src="assets/images/f2.jpg" alt="product" class="img-responsive about-me">
+                                    <div class="about-grids editContent">
+                                        <h5><a href="#page" class="editContent">トリミング</a></h5>
+                                        <p class="para editContent">美容サービス - ペットの美容サービスを提供し、洗浄やトリミング、
+                                            毛のカットなどを行い、ペットの外見を清潔で健康的に保ちます。 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 propClone about-line-top" th:if="${isLoggedIn}">
+                                <div class="pet-grid-row">
+                                    <img src="assets/images/f6.jpg" alt="product" class="img-responsive about-me" >
+                                    <div class="about-grids editContent">
+                                        <h5><a href="#page" class="editContent" data-toggle="modal" data-target="#myModal2">ポイントサービス</a></h5>
+                                        <p class="para editContent">商品購入やサービス利用に応じて、ポイントを付与するサービスで、
+                                            ポイントの蓄積や利用が可能です。 </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 propClone about-line-top" th:if="${isLoggedIn}">
+                                <div class="pet-grid-row">
+                                    <img src="assets/images/f1.jpg" alt="product" class="img-responsive about-me">
+                                    <div class="about-grids editContent">
+                                        <h5><a href="#page" class="editContent" data-toggle="modal" data-target="#myModal">来店履歴</a></h5>
+                                        <p class="para editContent">顧客の来店履歴を管理し、以前の来店情報や購入履歴を参照できる
+                                            サービスです。 </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-5 col-md-6 col-sm-12 footer-list-29 footer-1">
+                        <h2><a href="index.html" class=""><span class="fa fa-paw mr-2" aria-hidden="true"></span> Pet
+                                Sitter</a></h2>
+                        <p>Adipisicing elit. Lauda ntium, archi tecto iure Lorem incidunt iosam qui quo moll itia veniam
+                            recus andae archi tecto earum suscipit exce pturi dicta nemo quam.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3">
+                        <h6 class="footer-title-29">Get in Touch</h6>
+
+                        <div class="column2">
+                            <div class="href1"><span>E-mail:</span><a
+                                    href="mailto:mail@company.com">mail@company.com</a>
+                            </div>
+                            <div class="href2"><span>Phone:</span><a href="tel:+(12)-00 222 00008">+(12)-00 222
+                                    00008</a>
+                            </div>
+                            <div>
+                                <p class="contact-para">California, 75 West Rock,
+                                    Maple Building.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4">
+                        <h6 class="footer-title-29">Newsletter </h6>
+                        <p>Enter your email and receive the latest news from us.
+                            We'll never share your email address</p>
+
+                        <form action="#" class="subscribe" method="post">
+                            <input type="email" name="email" placeholder="Your Email Address" required="">
+                            <button><span class="fa fa-envelope-o"></span></button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bottom-copies text-center">
+            <div class="container">
+                <p class="copy-footer-29">Copyright &copy; 2020.Company name All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="../happypet/assets/js/bootstrap.js"></script>
+    <!-- //js  working-->
+
+    <!-- 引入 Bootstrap 的 JavaScript 文件 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Close the modal when the user clicks outside of it
+        $(document).mouseup(function (e) {
+            var container = $("#myModal");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.modal('hide');
+            }
+        });
+    </script>
+
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-eject"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }window.onscroll = function () {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("movetop").style.display = "block";
+			} else {
+				document.getElementById("movetop").style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+		function showDropdownMenu() {
+			$('#navbarDropdown').dropdown('show');
+		}
+
+		function hideDropdownMenu() {
+			$('#navbarDropdown').dropdown('hide');
+		}
+		let hasAlerted = false;
+
+		$(function () {
+			// 在页面加载后延迟一段时间以确保 msg 已经设置
+			if (!hasAlerted) {
+				setTimeout(msgAlert, 300);
+				// 将变量名拼写正确，并将值设为 true
+				hasAlerted = true;
+			}
+		});
+
+	
+
+
+		function msgAlert() {
+			// 获取隐藏字段中的 msg 值
+			var msg = $("#msg").val();
+			// 如果 msg 存在且不为空，则显示警报
+			if (msg && msg !== "") {
+				alert(msg);
+			}
+		}
+    </script>
+
+    <!-- /move top -->
+</body>
+
+</html>

@@ -1,5 +1,7 @@
 package jp.co.brightstar.petshop.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +44,7 @@ public class pageController {
 	    ModelAndView mav = new ModelAndView();
 	    String userid = (String) session.getAttribute("userid");
 	    customer customer = service.findCustomerById(userid);
-	    pet pet = service.findPetById(userid);
+	    List<pet> pet = service.findPetById(userid);
 	    mav.addObject("customer", customer);
 	    mav.addObject("pet", pet);
 	    mav.setViewName("mypage");
@@ -50,21 +52,27 @@ public class pageController {
 	    
 	}
 	@GetMapping("/booking1")
-	public String bookForm(Model model) {
+	public ModelAndView bookForm(Model mode,HttpSession sessionl) {
+		 boolean isLoggedIn = sessionl.getAttribute("isLoggedIn") != null && (boolean) sessionl.getAttribute("isLoggedIn");
+		 mode.addAttribute("isLoggedIn", isLoggedIn);
 		Orderinfo order = new Orderinfo();
-		model.addAttribute("order", order);
-	    return "booking1";
+		mode.addAttribute("order", order);
+	    ModelAndView mav = new ModelAndView();
+	    String userid = (String) sessionl.getAttribute("userid");
+	    List<pet> pet = service.findPetById(userid);
+	    mav.addObject("pet", pet);
+	    mav.setViewName("booking1");
+	    return mav;
 	}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-	    // 将会话中的 "isLoggedIn" 属性移除，表示用户已退出登录
+	    // 将作用中的 "isLoggedIn" 属性删除，退出登录
 	    session.removeAttribute("isLoggedIn");
 	    session.removeAttribute("msg");
-	    // 其他清理操作...
 	    
-	    // 重定向到登录页面或其他页面
-	    return "redirect:/index"; // 假设登录页面的路径为 "/login"
+	    return "redirect:/index"; 
+
 	}
 	@GetMapping("/about")
 	public String about(Model model, HttpSession session) {

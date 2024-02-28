@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与Mapper接口绑定 -->
+<mapper namespace="jp.co.brightstar.petshop.mapper.orderMapper">
+<select id="storeSpace" parameterType="string" resultType="int">
+SELECT COUNT(*) FROM store_info WHERE store_nm = #{storeid } AND space_stu = #{spaceStu };
+</select>
+<select id="orderSpace" parameterType="string" resultType="int">
+SELECT COUNT(*) FROM ORDER_INFO WHERE store_id = #{storeid } AND space_stu = #{spaceStu };
+</select>
+<select id="maxStartDate" parameterType="map" resultType="java.util.Date">
+     SELECT MAX(START_DATE) FROM order_info where store_id = #{storeid } and space_stu = #{spaceStu };
+</select>
+
+<select id="minEndDate" parameterType="map" resultType="java.util.Date">
+    SELECT MIN(END_DATE) FROM order_info where store_id = #{storeid } and space_stu = #{spaceStu };
+</select>
+
+
+
+</mapper>
